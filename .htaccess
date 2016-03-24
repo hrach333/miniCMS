@@ -1,9 +1,0 @@
-AddDefaultCharset utf-8
-php_value display_errors 1
-
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteRule ^home/?$ index.php?option=home
-RewriteRule ^([^/]*)/$ /?option=$1 [L]
-RewriteRule ^([^/]*)/([^/]*)$ /?option=$1&id=$2 [L]
-</IfModule>
