@@ -1,0 +1,40 @@
+body{
+	background: url(../img/fon.jpg);
+}
+footer{
+	border-top:1px solid #ccc;
+}
+.navbar{
+	height: 85px;
+}
+.block {
+	background: #ccc;
+}
+.wile .row{
+		margin-left: 0;
+		margin-right: 0;
+}
+.navbar {
+	margin-bottom: 0;
+}
+.bed{
+
+	/*height: 120px !important;*/
+}
+.text-panel{
+	
+}
+.img-goal{
+	float: left;
+}
+.content{
+	background-color: #fff;
+}
+.gorisontal{
+	margin-top: 5px;
+}
+.gorisontal >a{
+	display: inline-block;
+	font-size:9pt;
+	padding: 5px 5px;
+}
