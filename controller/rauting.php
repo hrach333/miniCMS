@@ -6,16 +6,18 @@ class rauting {
 		$this->redirect = array(
 			'home'=>array('class'=>'content','action'=>'index')
 			,
-			'page'=>array('class'=>'page','action'=>'getPage'));
+			'page'=>array('class'=>'page','action'=>'index'));
 	}
 	public function __construct($url){
-		$red = $this->config();
+		$this->config();
 		if(array_key_exists($url,$this->redirect)){
 			$red = $this->redirect[$url];
 			if(!require_once $red['class'].'Controller.php'){
 				echo 'Ошибка при подключение';
 			}
+			//require_once $red['class'].'Controller.php'
 			$className = $red['class'].'Controller';
+
 			$object = new $className($red['class']);
 			$action = $red['action'];
 			$object->$action();
