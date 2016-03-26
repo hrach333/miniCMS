@@ -15,8 +15,12 @@ class contentController extends controller{
   		$this->id = getID();
   		$this->obj->setID($this->id);
      	$this->obj->getContent();
+     	$menu = $this->obj->menu();
+     	
      	$this->obj->row[0]["themeurl"]= THEMEURL;
      	$this->obj->row[0]["url"]= HOMEURL;
+     	$this->obj->row[0]["menus"] = $menu;
+     	//$this->debug($this->obj->row);
      	echo $this->getTemp("index",$this->obj->row[0]);
 
 	 	

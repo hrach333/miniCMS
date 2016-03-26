@@ -3,10 +3,11 @@ class rauting {
 
 	private $redirect;
 	private function config(){
-		$this->redirect = array(
+		 $this->redirect= array(
 			'home'=>array('class'=>'content','action'=>'index')
 			,
-			'page'=>array('class'=>'page','action'=>'index'));
+			'page'=>array('class'=>'page','action'=>'index'),
+			'blog'=>array('class'=>'blog', 'action'=>'index'));
 	}
 	public function __construct($url){
 		$this->config();
