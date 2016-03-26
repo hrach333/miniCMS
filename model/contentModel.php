@@ -15,7 +15,9 @@ include_once('model.php');
 			$this->id = $id;
 		}
 		public function getContent(){
+
 			$this->select(array('*'), array('id'=>$this->id));
+			
 		}
 	}
 ?>

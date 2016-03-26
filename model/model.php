@@ -4,6 +4,7 @@ class model {
 	protected $res;
 	public $table;
 	public $row;
+	public $menu;
 	private function conect(){
 		include_once('config.php');
 		try{
@@ -21,6 +22,13 @@ class model {
 	public function plural($word){
 		$word2 = $word.'s';
 		return $word2;
+	}
+	public function menu(){
+		$pdo=$this->conect();
+		$sql = "SELECT * FROM menu";
+		$res = $pdo->query($sql);
+		return $res->fetchAll(PDO::FETCH_ASSOC);
+
 	}	
 	public function select($array,$where=null,$limit=null){
 		$pdo=$this->conect();

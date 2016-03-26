@@ -4,8 +4,10 @@ abstract class controller {
 	public $error;
 	public $info;
 	function __construct(){
+		/*
 		if(empty($this->error)){echo '<div class="error">'.$this->error.'</dvi>'; }
 		if(empty($this->info)){echo '<div class="info">'.$this->info.'</div>';}
+		*/
 	}
 	function model($model){
 		$className = $model."Model";

@@ -24,9 +24,7 @@ footer{
 .text-panel{
 	
 }
-.img-goal{
-	float: left;
-}
+
 .content{
 	background-color: #fff;
 }
@@ -37,4 +35,27 @@ footer{
 	display: inline-block;
 	font-size:9pt;
 	padding: 5px 5px;
+}
+.blogs{
+	background: #fff;
+}
+
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px)and(max-width: 420px) { 
+	.img-goal{
+	float: none;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {  }
+	.img-goal{
+	float: left;
+	}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+	.img-goal{
+	float: left;
+	}
 }
