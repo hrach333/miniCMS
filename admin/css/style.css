@@ -1,0 +1,37 @@
+body {
+     background: #0CAEF9; 
+}
+.container{
+    width:1200px;
+    min-height:300px;
+   
+}
+.big_button{
+    
+    background: linear-gradient(#0E9EF7,#12506B);
+    width: 250px;
+    height: 250px;
+    box-shadow: 2px 2px 4px #454545;
+    border-radius:125px;
+    text-align: center;
+    margin-top: 160px;
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer; 
+}
+.centr_text{
+  display: inline-block;
+   
+  margin-top:80px; 
+  text-align: center;   
+}
+.big_text{
+    color:#fff;
+    font-size: 60pt;
+    font-family: Ubuntu;
+}
+.img_plus{
+    position: absolute;
+    margin-top:420px;
+    margin-left: -150px;
+}

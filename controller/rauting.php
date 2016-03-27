@@ -7,7 +7,8 @@ class rauting {
 			'home'=>array('class'=>'content','action'=>'index')
 			,
 			'page'=>array('class'=>'page','action'=>'index'),
-			'blog'=>array('class'=>'blog', 'action'=>'index'));
+			'blog'=>array('class'=>'blog', 'action'=>'index'),
+            'admin'=>array('class'=>'admin','action'=>'index'));
 	}
 	public function __construct($url){
 		$this->config();
