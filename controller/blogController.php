@@ -20,6 +20,7 @@ class blogController extends controller{
 		$blog["themeurl"]= THEMEURL;
      	$blog["url"]= HOMEURL;
      	$blog["menus"] = $menu;
+        $blog["test"] = "test";
      		echo $this->getTemp("post",$blog);
 
 
