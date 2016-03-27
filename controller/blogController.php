@@ -9,7 +9,22 @@ class blogController extends controller{
 	}
 	public function index(){
 		
-		$menu = $this->obj->menu();
+		
+     	if(isset($_GET['id'])){
+     		$menu = $this->obj->menu();
+     		$id=$_GET['id'];
+		$this->obj->getBlog();
+		
+		$blog['blog'] = $this->obj->row[0];
+		//$this->debug($blog);
+		$blog["themeurl"]= THEMEURL;
+     	$blog["url"]= HOMEURL;
+     	$blog["menus"] = $menu;
+     		echo $this->getTemp("post",$blog);
+
+
+     	}else{
+     	$menu = $this->obj->menu();
 		$this->obj->getBlogs();
 		
 		$blog['blog'] = $this->obj->row;
@@ -17,7 +32,9 @@ class blogController extends controller{
 		$blog["themeurl"]= THEMEURL;
      	$blog["url"]= HOMEURL;
      	$blog["menus"] = $menu;
-     	echo $this->getTemp("blog",$blog);
+     		echo $this->getTemp("blog",$blog);
+     	}
+     	
 	}
 
 }

@@ -81,19 +81,19 @@
 	<div class="row blogs"> 
 		
     <div class="col-md-12">
-    
-		{% for blg in blog %}
-    <h1><img width="100px" src="{{url}}/{{blg.img}}"> {{blg.title}}</h1>
-    <p>{{blg.description}}</p>
-    <a href="/blog/{{blg.id}}">Подробнее...</a>
+		
+   
+    <h1>{{blog.title}}</h1>
+    <p>{{blog.text}}</p>
+    <a href="/blog/">Назад</a>
     <div>
-<span class="badge">Posted {{blg.date}}</span><div class="pull-right">
+
 <!--<span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
 <span class="label label-danger">Danger</span></div> -->       
      </div>
     <hr>
 
-    {% endfor %}
+  
     </div>
 		</div>
 	</div><!--./wile-->
