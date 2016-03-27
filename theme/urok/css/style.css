@@ -42,17 +42,18 @@ footer{
 
 
 /* Small devices (tablets, 768px and up) */
-@media (min-width: 768px)and(max-width: 420px) { 
+@media (min-width: 768px) { 
 	.img-goal{
 	float: none;
 	}
 }
 
 /* Medium devices (desktops, 992px and up) */
-@media (min-width: 992px) {  }
+@media (min-width: 992px) {  
 	.img-goal{
 	float: left;
 	}
+}
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
 	.img-goal{
