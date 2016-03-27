@@ -14,14 +14,12 @@ class blogController extends controller{
      		$menu = $this->obj->menu();
      		$id=$_GET['id'];
 		$this->obj->getBlog();
-		
-		$blog['blog'] = $this->obj->row[0];
 		//$this->debug($blog);
-		$blog["themeurl"]= THEMEURL;
-     	$blog["url"]= HOMEURL;
-     	$blog["menus"] = $menu;
-        $blog["test"] = "test";
-     		echo $this->getTemp("post",$blog);
+        $this->obj->row[0]["themeurl"]= THEMEURL;
+        $this->obj->row[0]["url"]= HOMEURL;
+        $this->obj->row[0]["menus"] = $menu; 
+     	
+     	echo $this->getTemp("post",array("blog"=>$this->obj->row[0]));
 
 
      	}else{
@@ -30,10 +28,17 @@ class blogController extends controller{
 		
 		$blog['blog'] = $this->obj->row;
 		//$this->debug($blog);
+        
+        $const["themeurl"]= THEMEURL;
+        $const["url"]= HOMEURL;
+        $const["menus"] = $menu;
+        //$this->debug( $this->obj->row);
+        /*
 		$blog["themeurl"]= THEMEURL;
      	$blog["url"]= HOMEURL;
      	$blog["menus"] = $menu;
-     		echo $this->getTemp("blog",$blog);
+         */
+     		echo $this->getTemp("blog",array("blog"=>$this->obj->row,"const"=>$const));
      	}
      	
 	}

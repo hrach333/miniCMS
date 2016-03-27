@@ -3,8 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Урок</title>
-	<link rel="stylesheet" type="text/css" href="{{themeurl}}/css/bootstrap.css"	>
-	<link rel="stylesheet" type="text/css" href="{{themeurl}}/css/style.css">
+	<link rel="stylesheet" type="text/css" href="{{blog.themeurl}}/css/bootstrap.css"	>
+	<link rel="stylesheet" type="text/css" href="{{blog.themeurl}}/css/style.css">
 <meta name="description" content="{{description}}">
 	</head>
 <body>
@@ -30,7 +30,7 @@
         <li><a href="#">Link</a></li>
         -->
         
-    {% for menu in menus %}
+    {% for menu in blog.menus %}
         <li><a href="/home/{{menu.id_name}}">{{ menu.title|e }}</a></li>
     {% endfor %}
      <!--
@@ -66,15 +66,15 @@
 <div class="wile">
 <div class="row">
 	<div class="col-sm-4 block">
-		<img src="{{themeurl}}/img/1.png" width="100px" class="img-goal">
+		<img src="{{blog.themeurl}}/img/1.png" width="100px" class="img-goal">
 		<div class="text-panel">Мы первая компания которая разрабатывает софт для русских.</div>
 	</div>
 	<div class="col-sm-4 block bed">
-		<img src="{{themeurl}}/img/good.png" width="100px" class="img-goal">
+		<img src="{{blog.themeurl}}/img/good.png" width="100px" class="img-goal">
 		Мы горантируем, что наш качественный продук.
 	</div>
 	<div class="col-sm-4 block ">
-		<img src="{{themeurl}}/img/icons_large_it.png" width="100px" class="img-goal">
+		<img src="{{blog.themeurl}}/img/icons_large_it.png" width="100px" class="img-goal">
 		Мы IT компания которая вот уже 5 лет работает в этой сфере.
 	</div>
 		</div>
