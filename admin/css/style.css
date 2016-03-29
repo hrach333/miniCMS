@@ -11,13 +11,16 @@ body {
     background: linear-gradient(#0E9EF7,#12506B);
     width: 250px;
     height: 250px;
-    box-shadow: 2px 2px 4px #454545;
+    
     border-radius:125px;
     text-align: center;
-    margin-top: 160px;
+    margin-top: 100px;
     display: inline-block;
     margin-left: 20px;
     cursor: pointer; 
+}
+.big_button:hover{
+    box-shadow: 2px 2px 4px #454545;
 }
 .centr_text{
   display: inline-block;
@@ -32,6 +35,12 @@ body {
 }
 .img_plus{
     position: absolute;
-    margin-top:420px;
+    margin-top:360px;
     margin-left: -150px;
+}
+.container h1{
+    color: #fff;
+    font-family: ubuntu;
+    font-size: 30pt;
+    margin-left: 20px;
 }
