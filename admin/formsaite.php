@@ -25,32 +25,19 @@
 					</div>
 				</div>
 				<div class="panel-body">
+                  
+				    <div>
+                        
+                       <form action="admin/" method="post" class="form_saite">
+                           <input type="text" name="title" value="{{saite.title}}"><br>
+                           <input type="text" name="desc" value="{{saite.description}}"><br>
+                           <input type="text" name="key" value="{{saite.key}}"><br>
+                           <textarea name="text">{{saite.text}}</textarea><br>
+                           <input type="hidden" value="{{saite.id}}" name="id">
+                           <input type="submit" value="Сохранить" name="submit">
+                       </form>
+                    </div>	
                    
-                    {% for str in saites%}
-					<div class="row">
-						<div class="col-xs-2"><!--<img class="img-responsive" src="http://placehold.it/100x70">-->
-						</div>
-						<div class="col-xs-4">
-							<h4 class="product-name"><strong><a href="?option=admin&type=saite&id={{str.id}}">{{str.title}}</a></strong></h4><h4><small>{{str.description}}</small></h4>
-						</div>
-                        <!--
-						<div class="col-xs-6">
-							<div class="col-xs-6 text-right">
-								
-							</div>
-							<div class="col-xs-4">
-								
-							</div>
-                            -->
-							<div class="col-xs-2">
-								<button type="button" class="btn btn-link btn-xs">
-									<span class="glyphicon glyphicon-trash"> </span>
-								</button>
-							</div>
-						</div>
-					</div>
-					<hr>
-                    {% endfor %}
                     <!--
 					<div class="row">
 						<div class="text-center">

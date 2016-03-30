@@ -14,8 +14,13 @@ class adminModel extends model{
     ]);
 	}
     
-    public function getSaite(){
-       $this->row = $this->db->select('contents','*');
+    public function getSaite($id=null){
+        if($id==null){
+            $this->row = $this->db->select('contents','*');
+        }else{
+            $this->row = $this->db->select('contents','*',['id'=>$id]);
+        }
+       
        
     }
 }

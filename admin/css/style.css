@@ -44,3 +44,6 @@ body {
     font-size: 30pt;
     margin-left: 20px;
 }
+.form_saite input{
+    margin-bottom: 5px;
+}
