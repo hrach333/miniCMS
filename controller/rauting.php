@@ -4,8 +4,7 @@ class rauting {
 	private $redirect;
 	private function config(){
 		 $this->redirect= array(
-			'home'=>array('class'=>'content','action'=>'index')
-			,
+			'home'=>array('class'=>'content','action'=>'index'),
 			'page'=>array('class'=>'page','action'=>'index'),
 			'blog'=>array('class'=>'blog', 'action'=>'index'),
             'admin'=>array('class'=>'admin','action'=>'index'));

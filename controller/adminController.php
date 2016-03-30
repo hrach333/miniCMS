@@ -1,8 +1,11 @@
 <?php
 include_once('controller.php');
+
 class adminController extends controller{
     function __construct($model){
-		
+		$this->mod = $model;
+		$this->option = $this->getOption();
+		$this->model($model);
 		
 	}
     private function conectTwig(){
@@ -18,9 +21,18 @@ class adminController extends controller{
 
 	}
     public function index(){
-         $const["themeurl"]= THEMEURL;
+        $const["themeurl"]= THEMEURL;
         $const["url"]= HOMEURL;
-        echo $this->getTemp("index.php",array('const'=>$const));
+        if($_GET[id]=="saite"){
+            $this->obj->getSaite();
+            //$this->debug($this->obj->row);
+            $saite = $this->obj->row;
+            echo $this->getTemp("saite.php",array('saite'=>$saite,'const'=>$const));
+        }else{
+            echo $this->getTemp("index.php",array('const'=>$const));
+        }
+        
+        
     }
     
 }
