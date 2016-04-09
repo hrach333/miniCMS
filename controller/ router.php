@@ -1,30 +1,51 @@
 <?php
-class rauting {
 
-	private $redirect;
-	private function config(){
-		 $this->redirect= array(
-			'home'=>array('class'=>'content','action'=>'index'),
-			'page'=>array('class'=>'page','action'=>'index'),
-			'blog'=>array('class'=>'blog', 'action'=>'index'),
-            'admin'=>array('class'=>'admin','action'=>'index'));
-	}
-	public function __construct($url){
-		$this->config();
-		if(array_key_exists($url,$this->redirect)){
-			$red = $this->redirect[$url];
-			if(!require_once $red['class'].'Controller.php'){
-				echo 'Ошибка при подключение';
-			}
-			//require_once $red['class'].'Controller.php'
-			$className = $red['class'].'Controller';
+class rauter
+{
 
-			$object = new $className($red['class']);
-			$action = $red['action'];
-			$object->$action();
+    private $redirect;
 
-		}else{
-			echo ' no page';
-		}
-	}
+    private function config()
+    {
+
+        $action = filter_input(INPUT_GET, "action");
+        if ($action === null)
+        {
+            $action = 'index';
+        }
+        $this->redirect = array(
+            'home' => array('class' => 'content', 'action' => $action),
+            'page' => array('class' => 'page', 'action' => $action),
+            'blog' => array('class' => 'blog', 'action' => $action),
+            'admin' => array('class' => 'admin', 'action' => $action));
+    }
+
+    public function __construct()
+    {
+        require_once 'function/function.php';
+        $urls = request_url("get");
+        $urls = explode('/', $urls);
+        $class = $urls[1];
+        $this->config();
+        if (array_key_exists($class, $this->redirect))
+        {
+            $red = $this->redirect[$class];
+            if (!require_once $red['class'] . 'Controller.php')
+            {
+                echo 'Ошибка при подключение';
+            }
+            //require_once $red['class'].'Controller.php'
+            $className = $red['class'] . 'Controller';
+
+            $object = new $className($red['class']);
+            $action = $red['action'];
+            $object->$action();
+        }
+        else
+        {
+            //будет страницы 404.html 
+            echo ' no page';
+        }
+    }
+
 }

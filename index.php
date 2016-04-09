@@ -1,15 +1,4 @@
 <?php
 require_once 'config.php';
-require_once 'controller/rauting.php';
-if(isset($_GET['option'])){
-	
-	$url = $_GET['option'];
-
-	$redirect = new rauting($url);
-
-}else{
-	$redirect = new rauting('home');
-}
-
-
-?>
+require_once 'controller/rauter.php';
+$redirect = new rauter();

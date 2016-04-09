@@ -16,7 +16,7 @@
                             <div class="panel-title">
                                 <div class="row">
                                     <div class="col-xs-6">
-                                        <h5>Сайты</h5>
+                                        <h5>Блог/h5>
                                     </div>
                                     <div class="col-xs-6">
 
@@ -29,11 +29,11 @@
                             <div>
 
                                 <form action="admin/" method="post" class="form_saite">
-                                    <input type="text" name="title" value="{{saite.title}}"><br>
-                                    <input type="text" name="desc" value="{{saite.description}}"><br>
-                                    <input type="text" name="key" value="{{saite.key}}"><br>
-                                    <textarea name="text">{{saite.text}}</textarea><br>
-                                    <input type="hidden" value="{{saite.id}}" name="id">
+                                    <input type="text" name="title" value="{{blog.title}}"><br>
+                                    <input type="text" name="desc" value="{{blog.description}}"><br>
+                                    <input type="text" name="key" value="{{blog.key}}"><br>
+                                    <textarea name="text">{{blog.text}}</textarea><br>
+                                    <input type="hidden" value="{{blog.id}}" name="id">
                                     <input type="submit" value="Сохранить" name="edit_blog">
                                 </form>
                             </div>	
