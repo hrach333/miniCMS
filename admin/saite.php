@@ -31,7 +31,7 @@
                                     <div class="col-xs-2"><!--<img class="img-responsive" src="http://placehold.it/100x70">-->
                                 </div>
                                 <div class="col-xs-4">
-                                    <h4 class="product-name"><strong><a href="?option=admin&action=index&type=saite&id={{str.id}}">{{str.title}}</a></strong>
+                                    <h4 class="product-name"><strong><a href="/admin/saite/{{str.id}}">{{str.title}}</a></strong>
                                         <input type="hidden" value="{{str.id}}" id="id_saite{{str.id}}">
                                     </h4>
                                     <h4><small>{{str.description}}</small></h4>

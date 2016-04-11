@@ -5,13 +5,16 @@ include_once('controller.php');
 class adminController extends controller
 {
 
-    private $const=array();
+    private $const = array();
+    private $id;
 
-    function __construct($model)
+    function __construct($model, $id = null)
     {
         $this->mod = $model;
         $this->option = $this->getOption();
         $this->model($model);
+        if ($id != null)
+            $this->id = $id;
     }
 
     private function conectTwig()
@@ -32,7 +35,7 @@ class adminController extends controller
     private function updateSaite()
     {
         $post = postUpdateSite();
-        $id = filter_input(INPUT_POST, "id", FILTER_VALIDATE_INT);
+        $id = $this->id;
         $this->obj->db->update("contents", $post, ["id" => $id]);
         $error = $this->obj->db->error();
         if (!empty($error[2]))
@@ -45,10 +48,9 @@ class adminController extends controller
 
     private function getSaite()
     {
-        $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-
-        if ($id)
+        if (!empty($this->id))
         {
+            $id = $this->id;
             $this->obj->getSaite($id);
             $saite = $this->obj->row[0];
             //$this->debug($this->const);
@@ -82,7 +84,7 @@ class adminController extends controller
     private function get_edit_delete()
     {
         $submit = filter_input(INPUT_POST, "submit");
-
+        
         if ($submit === "edit_saite")
         {
             echo $this->updateSaite();
@@ -92,14 +94,22 @@ class adminController extends controller
         {
             $this->deleteSaite();
         }
+        if (isset($submit) || isset($delete))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 
     private function getBlog()
     {
-        $id = filter_input(INPUT_GET, "id", FILTER_VALIDATE_INT);
-        if ($id)
+
+        if (!empty($this->id))
         {
-            $this->obj->getBlogs($id);
+            $this->obj->getBlogs($this->id);
             $blog = $this->obj->row[0];
             //$this->debug($blogs);
             echo $this->getTemp("formblog.php", array('blog' => $blog, 'const' => $this->const));
@@ -113,29 +123,30 @@ class adminController extends controller
         }
     }
 
+    public function saite()
+    {
+        $this->getSaite();
+    }
+
+    public function blog()
+    {
+        $this->getBlog();
+    }
+
     public function index()
     {
         $this->const["themeurl"] = THEMEURL;
         $this->const["url"] = HOMEURL;
         $type = filter_input(INPUT_GET, "type", FILTER_SANITIZE_STRING);
 
-        if ($type == "saite")
+
+
+
+        // Получаем нажатую кнопку submit с типом edit_saite
+        $bul = $this->get_edit_delete();
+        if ($bul)
         {
-            /* @var $id индификатор для открытие одного строницы */
-            $this->getSaite();
-        }
-        elseif ($type === "blog")
-        {
-            $this->getBlog();
-        }
-        else
-        {
-            // Получаем нажатую кнопку submit с типом edit_saite
-            $this->get_edit_delete();
-            if ($submit === null && $delete === null)
-            {
-                echo $this->getTemp("index.php", array('const' => $this->const));
-            }
+            echo $this->getTemp("index.php", array('const' => $this->const));
         }
     }
 
