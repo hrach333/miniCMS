@@ -4,22 +4,24 @@ include_once('controller.php');
 
 class blogController extends controller
 {
-
-    function __construct($model)
+    private $id;
+            function __construct($model,$id=null)
     {
         $this->mod = $model;
         $this->option = $this->getOption();
         $this->model($model);
+        if ($id != null) $this->id = $id;
     }
 
     public function index()
     {
-        $id = filter_input(INPUT_GET, "id");
+        $id = $this->id;
         if ($id!=null)
         {
+            
             $menu = $this->obj->menu();
-            $id = $_GET['id'];
-            $this->obj->getBlog();
+            
+            $this->obj->getBlog($id);
             //$this->debug($blog);
             $this->obj->row[0]["themeurl"] = THEMEURL;
             $this->obj->row[0]["url"] = HOMEURL;

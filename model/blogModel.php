@@ -15,8 +15,8 @@ class blogModel extends model{
 			$this->select(array('*'),null,$limit);
 			
 		}
-		public function getBlog(){
-			$this->id = getID(); 
-			$this->select(array('date','title','text'),array('id'=>$this->id));
+		public function getBlog($id){
+			
+			$this->select(array('date','title','text'),array('id'=>$id));
 		}
 }

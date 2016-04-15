@@ -1,27 +1,23 @@
 <?php
 
-include_once('controller.php');
+//include_once('controller.php');
 
-class adminController extends controller
+class classAdmin
 {
 
     private $const = array();
     private $id;
 
-    function __construct($model, $id = null)
+    function __construct()
     {
-        $this->mod = $model;
-        $this->option = $this->getOption();
-        $this->model($model);
-        if ($id != null)
-            $this->id = $id;
+        
     }
 
     private function conectTwig()
     {
-        require_once 'Twig/autoloader.php';
+        require_once '../Twig/autoloader.php';
         Twig_Autoloader::register();
-        $loader = new Twig_Loader_Filesystem("admin");
+        $loader = new Twig_Loader_Filesystem("../admin/tmpl/");
         return $twig = new Twig_Environment($loader);
     }
 
@@ -30,6 +26,12 @@ class adminController extends controller
         $twig = $this->conectTwig();
         $file = $name;
         return $template = $twig->loadTemplate($file);
+    }
+
+    public function getTemp($name, $array = array())
+    {
+        $template = $this->getTempl($name);
+        return $template->render($array);
     }
 
     private function updateSaite()
@@ -84,7 +86,7 @@ class adminController extends controller
     private function get_edit_delete()
     {
         $submit = filter_input(INPUT_POST, "submit");
-        
+
         if ($submit === "edit_saite")
         {
             echo $this->updateSaite();
@@ -133,21 +135,19 @@ class adminController extends controller
         $this->getBlog();
     }
 
-    public function index()
+    public function main($type)
     {
         $this->const["themeurl"] = THEMEURL;
         $this->const["url"] = HOMEURL;
-        $type = filter_input(INPUT_GET, "type", FILTER_SANITIZE_STRING);
-
-
-
-
-        // Получаем нажатую кнопку submit с типом edit_saite
-        $bul = $this->get_edit_delete();
-        if ($bul)
-        {
-            echo $this->getTemp("index.php", array('const' => $this->const));
+        switch ($type){
+        case "site":
+        echo $this->getTemp("site.html", array('const' => $this->const));
+        break;
+        default :
+            echo $this->getTemp("main.html", array('const' => $this->const));
+            break;
         }
+        
     }
 
 }

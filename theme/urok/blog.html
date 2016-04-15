@@ -1,121 +1,106 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<title>Урок</title>
-	<link rel="stylesheet" type="text/css" href="{{const.themeurl}}/css/bootstrap.css"	>
-	<link rel="stylesheet" type="text/css" href="{{const.themeurl}}/css/style.css">
-<meta name="description" content="{{description}}">
-	</head>
-<body>
-<div class="container">
-	<nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="projekt.dev"><img alt="Brand" src="{{url}}/theme/urok/img/panda1.png"></a>
-    </div>
+    <head>
+        <meta charset="UTF-8">
+        <title>Урок</title>
+        <link rel="stylesheet" type="text/css" href="{{const.themeurl}}/css/bootstrap.css"	>
+        <link rel="stylesheet" type="text/css" href="{{const.themeurl}}/css/style.css">
+        <meta name="description" content="{{description}}">
+    </head>
+    <body>
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="container-fluid">
+                    <!-- Brand and toggle get grouped for better mobile display -->
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="projekt.dev"><img alt="Brand" src="{{url}}/theme/urok/img/panda1.png"></a>
+                    </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav">
-      <!--
-        <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-        <li><a href="#">Link</a></li>
-        -->
-        
-    {% for menu in const.menus %}
-        <li><a href="/home/{{menu.id_name}}">{{ menu.title|e }}</a></li>
-    {% endfor %}
-     <!--
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-         
-          <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">Separated link</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
-      </ul>
-     -->
-      <ul class="nav navbar-nav navbar-right">
-       <form class="navbar-form navbar-left" role="search">
-        <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-      <input type="text" class="form-control" placeholder="Search for...">
-    </div>
-      </form>
-      <li> <a href="">Войти</a></li>
-      <li> <a href="#">Регистрация</a></li>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-<div class="wile">
-<div class="row">
-	<div class="col-sm-4 block">
-		<img src="{{const.themeurl}}/img/1.png" width="100px" class="img-goal">
-		<div class="text-panel">Мы первая компания которая разрабатывает софт для русских.</div>
-	</div>
-	<div class="col-sm-4 block bed">
-		<img src="{{const.themeurl}}/img/good.png" width="100px" class="img-goal">
-		Мы горантируем, что наш качественный продук.
-	</div>
-	<div class="col-sm-4 block ">
-		<img src="{{const.themeurl}}/img/icons_large_it.png" width="100px" class="img-goal">
-		Мы IT компания которая вот уже 5 лет работает в этой сфере.
-	</div>
-		</div>
-	<div class="row blogs"> 
-		
-    <div class="col-md-12">
-    
-		{% for blg in blog %}
-    <h1><img width="100px" src="{{const.url}}/{{blg.img}}"> {{blg.title}}</h1>
-    <p>{{blg.description}}</p>
-    <a href="/blog/index/{{blg.id}}">Подробнее...</a>
-    <div>
-<span class="badge">Posted {{blg.date}}</span><div class="pull-right">
-<!--<span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
-<span class="label label-danger">Danger</span></div> -->       
-     </div>
-    <hr>
+                    <!-- Collect the nav links, forms, and other content for toggling -->
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul class="nav navbar-nav">
+                            <!--
+                              <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
+                              <li><a href="#">Link</a></li>
+                            -->
 
-    {% endfor %}
-    </div>
-		</div>
-	</div><!--./wile-->
-<footer>
-	
-		<div class="wile">
-		<div class="row"> 
-		<div class="col-sm-12 content">
+                            {% for menu in const.menus %}
+                            <li><a href="/home/{{menu.id_name}}">{{ menu.title|e }}</a></li>
+                            {% endfor %}
 
-			<div class="list-group gorisontal">
-  Все прова зашешены 2016 &copy;
-  <a href="#" class="list-group-item">Главная</a>
-  <a href="#" class="list-group-item">О компании</a>
-  <a href="#" class="list-group-item">Контакты</a>
-</div>
-		</div>
-	</div>
-	</div>
-</footer>
-</div>
+                            <ul class="nav navbar-nav navbar-right">
+                                <form class="navbar-form navbar-left" role="search">
+                                    <div class="input-group">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-default" type="button">Go!</button>
+                                        </span>
+                                        <input type="text" class="form-control" placeholder="Search for...">
+                                    </div>
+                                </form>
+                                <li> <a href="">Войти</a></li>
+                                <li> <a href="#">Регистрация</a></li>
+                                </div><!-- /.navbar-collapse -->
+                                </div><!-- /.container-fluid -->
+                                </nav>
+                                <div class="wile">
+                                    <div class="row">
+                                        <div class="col-sm-4 block">
+                                            <img src="{{const.themeurl}}/img/1.png" width="100px" class="img-goal">
+                                            <div class="text-panel">Мы первая компания которая разрабатывает софт для русских.</div>
+                                        </div>
+                                        <div class="col-sm-4 block bed">
+                                            <img src="{{const.themeurl}}/img/good.png" width="100px" class="img-goal">
+                                            Мы горантируем, что наш качественный продук.
+                                        </div>
+                                        <div class="col-sm-4 block ">
+                                            <img src="{{const.themeurl}}/img/icons_large_it.png" width="100px" class="img-goal">
+                                            Мы IT компания которая вот уже 5 лет работает в этой сфере.
+                                        </div>
+                                    </div>
+                                    <div class="row blogs"> 
 
- <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.2.min.js"></script> 
-<script type="text/javascript" src="theme/urok/js/bootstrap.js"></script>
-</body>
+                                        <div class="col-md-12">
+
+                                            {% for blg in blog %}
+                                            <h1><img width="100px" src="{{const.url}}/{{blg.img}}"> {{blg.title}}</h1>
+                                            <p>{{blg.description}}</p>
+                                            <a href="/blog/index/{{blg.id}}">Подробнее...</a>
+                                            <div>
+                                                <span class="badge">Posted {{blg.date}}</span><div class="pull-right">
+                                                    <!--<span class="label label-default">alice</span> <span class="label label-primary">story</span> <span class="label label-success">blog</span> <span class="label label-info">personal</span> <span class="label label-warning">Warning</span>
+                                                    <span class="label label-danger">Danger</span></div> -->       
+                                                </div>
+                                                <hr>
+
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div><!--./wile-->
+                                    <footer>
+
+                                        <div class="wile">
+                                            <div class="row"> 
+                                                <div class="col-sm-12 content">
+
+                                                    <div class="list-group gorisontal">
+                                                        Все прова зашешены 2016 &copy;
+                                                        <a href="#" class="list-group-item">Главная</a>
+                                                        <a href="#" class="list-group-item">О компании</a>
+                                                        <a href="#" class="list-group-item">Контакты</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </footer>
+                                </div>
+
+                                <script type="text/javascript" src="http://code.jquery.com/jquery-1.12.2.min.js"></script> 
+                                <script type="text/javascript" src="theme/urok/js/bootstrap.js"></script>
+    </body>
 </html>
