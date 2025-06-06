@@ -39,7 +39,7 @@ class router
             $this->allId = $int;
         }
         try {
-            require_once $class . 'Controller.php';
+            require_once __DIR__ . '/' . $class . 'Controller.php';
         } catch (Exception $ex) {
             echo 'Ошибка при подключение';
         }
